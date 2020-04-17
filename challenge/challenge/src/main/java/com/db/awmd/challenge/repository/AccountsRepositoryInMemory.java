@@ -59,7 +59,7 @@ public class AccountsRepositoryInMemory implements AccountsRepository {
 	
   @Override
   public void transitionAmount(String fromAccount, String toAccount, BigDecimal amount) {
-	  
+	  public synchronized void transitionAmount(String fromAccount, String toAccount, BigDecimal amount) {
 	  if (getAccount(fromAccount) != null && getAccount(toAccount) != null) {
 			Account acc_from = getAccount(fromAccount);
 			boolean deb_flag = debitedFromAccount(acc_from, amount);
